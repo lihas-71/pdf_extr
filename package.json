@@ -1,0 +1,19 @@
+{
+  "name": "expdf",
+  "version": "1.0.0",
+  "description": "extract a portion of a pdf into a separate pdf",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "sahil",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^16.0.5"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "python-shell": "^3.0.1"
+  }
+}
