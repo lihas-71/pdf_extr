@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>expdf</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body class="px-6">
+    <div class="columns py-6" style="text-align: center;">
+
+
+        <input class="input mx-6 my-2 is-rounded" style=" max-width: 300px;" type="text"
+            placeholder="Enter start page" id="start-page">
+        <input class="input mx-6 my-2 is-rounded" type="text" style=" max-width: 300px;"
+            placeholder="Enter end page" id="end-page">
+        <input class="input mx-6 my-2 is-rounded" type="text" placeholder="New PDF name"
+            style=" max-width: 300px;" id="new-name">
+        <input type="text" style="display: none;" id="file-path" value="">
+
+        <div class="column py-6">
+            <button class="button  is-warning is-rounded mx-3" id="select-pdf-btn">SELECT PDF</button>
+            <button class="button is-info is-success is-rounded mx-3" id="extract-btn">EXTRACT</button>
+        </div>
+
+
+    </div>
+
+    <script>
+        var startPage = document.querySelector("#start-page");
+        var endPage = document.querySelector("#end-page");
+        var newName = document.querySelector("#new-name");
+
+        var selectPdfBtn = document.querySelector("#select-pdf-btn");
+        var extractBtn = document.querySelector("#extract-btn");
+
+        selectPdfBtn.addEventListener('click', () => {
+            window.selectPdf();
+        });
+
+        extractBtn.addEventListener('click', () => {
+            if (startPage.value.length === 0 || endPage.value.length === 0 || newName.value.length === 0) {
+                alert("please fill all the fields");
+                return;
+            } else {
+                let filePath = document.querySelector("#file-path").value;
+                console.log(filePath+"from extract btn");
+
+                extract(Number(startPage.value), Number(endPage.value),newName.value,filePath);
+            }         
+        });
+    </script>
+</body>
+
+</html>
